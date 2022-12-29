@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:plant/models/models.dart';
-import 'package:shared/shared.dart';
 // ignore: depend_on_referenced_packages
 import 'package:sprintf/sprintf.dart';
 
@@ -76,7 +75,7 @@ class S {
     final numberParams = <dynamic>[];
     for (var i = 0; i < comps.length; i++) {
       final text = comps[i];
-      if (text.isNumber()) {
+      if (int.tryParse(text) != null) {
         numberParams.add(int.parse(text));
       } else {
         keyString += keyString.isEmpty ? text : ' $text';

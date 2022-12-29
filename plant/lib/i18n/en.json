@@ -6,6 +6,6 @@
   "button.home": "Home",
   "button.signIn": "Sign In",
   "home.greetings": "Hi %s!",
-  "home.recommended_plants": "Recommended Plants",
+  "home.recommended_plants": "Recommended",
   "home.featured_plants": "Featured Plants"
 }

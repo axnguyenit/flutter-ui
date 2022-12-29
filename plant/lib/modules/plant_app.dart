@@ -30,7 +30,9 @@ class PlantAppState extends State<PlantApp> {
       supportedLocales: const [Locale('en'), Locale('vi')],
       locale: const Locale('en'),
       initialRoute: Screens.splash,
-      routes: AppRouter().allRoutes(context),
+      onGenerateRoute: (settings) => AppRouter.generateRoute(
+        settings,
+      ),
     );
   }
 }

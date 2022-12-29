@@ -23,13 +23,10 @@ class PlantListTitle extends StatelessWidget {
           PlantListTitleUnderline(text: title),
           const Spacer(),
           XButton(
-            onPressed: onPressed,
+            title: context.translate('More'),
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             borderRadius: BorderRadius.circular(28),
-            child: Text(
-              context.translate('More'),
-              style: const TextStyle(color: Colors.white),
-            ),
+            onPressed: onPressed,
           ),
         ],
       ),
@@ -47,29 +44,23 @@ class PlantListTitleUnderline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 24,
-      child: Stack(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(left: 20 / 4),
-            child: Text(
-              text,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
+    return Stack(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(left: 4),
+          child: XText.titleLarge(text),
+        ),
+        Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: Container(
+            margin: const EdgeInsets.only(right: 4),
+            height: 8,
+            color: context.primaryColor.withOpacity(0.2),
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              margin: const EdgeInsets.only(right: 20 / 4),
-              height: 7,
-              color: context.primaryColor.withOpacity(0.2),
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }

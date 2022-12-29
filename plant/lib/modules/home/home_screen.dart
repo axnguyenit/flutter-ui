@@ -68,7 +68,6 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: const [
               SearchBoxHeader(),
-              SizedBox(height: 60),
               RecommendedPlants(),
               FeaturedPlants(),
             ],

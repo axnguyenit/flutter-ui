@@ -13,7 +13,7 @@ class LogImpl implements Log {
   final middleRightCorner = '┤';
   final verticalLine = '│';
   final doubleDivider = '─';
-  final lineLength = 100;
+  final lineLength = 64;
 
   /// Matches a stacktrace line as generated on Android/iOS devices.
   /// For example:

@@ -3,6 +3,7 @@ import 'package:plant/constants/constants.dart';
 import 'package:plant/models/models.dart';
 import 'package:shared/shared.dart';
 
+import 'featured_plant_card.dart';
 import 'plant_list_title.dart';
 
 final recommendedPlants = <Plant>[
@@ -38,7 +39,7 @@ class FeaturedPlants extends StatelessWidget {
         PlantListTitle(
           title: context.translate(Strings.Home.featuredPlants),
           onPressed: () {
-            log.info('FEATURED MORE');
+            log.info('*********** MORE ***********');
           },
         ),
         SingleChildScrollView(
@@ -49,7 +50,12 @@ class FeaturedPlants extends StatelessWidget {
                 return FeaturedPlantCard(
                   image: plant.image,
                   onPressed: () {
-                    Navigator.of(context).pushNamed(Screens.plantDetails);
+                    Navigator.of(context).pushNamed(
+                      Screens.plantDetails,
+                      arguments: {
+                        'plant': plant,
+                      },
+                    );
                   },
                 );
               }).toList(),
@@ -58,38 +64,6 @@ class FeaturedPlants extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class FeaturedPlantCard extends StatelessWidget {
-  const FeaturedPlantCard({
-    super.key,
-    required this.image,
-    required this.onPressed,
-  });
-
-  final String image;
-  final VoidCallback onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        margin: const EdgeInsets.only(
-          left: AppConstants.AppHorizontalPadding,
-        ),
-        width: AppConstants.screenSize.width * 0.8,
-        height: 185,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(image),
-          ),
-        ),
-      ),
     );
   }
 }

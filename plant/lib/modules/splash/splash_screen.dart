@@ -14,8 +14,9 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final statusBarHeight = MediaQuery.of(context).viewPadding.top;
-      final size = MediaQuery.of(context).size;
+      final MediaQueryData mediaQueryData = MediaQuery.of(context);
+      final statusBarHeight = mediaQueryData.viewPadding.top;
+      final size = mediaQueryData.size;
 
       AppConstants.statusBarHeight = statusBarHeight;
       AppConstants.screenSize = size;
